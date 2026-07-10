@@ -84,8 +84,9 @@ z-index:5;
 }
 
 
+
 .footer{
-    text-align:left;
+    text-align:center;
     padding-top: 2px;
     padding-right: 15px;
     padding-left: 15px;
@@ -95,7 +96,7 @@ z-index:5;
 }
 
 .footer2{
-    text-align:left;
+    text-align:center;
     padding-top: 10px;
     padding-right: 15px;
     padding-left: 15px;

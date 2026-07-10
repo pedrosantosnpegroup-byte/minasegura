@@ -5,7 +5,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#007E7A">
-<link rel="icon" type="image/png" href="favicon1.png">
+<link rel="icon" type="image/png" href="imagens/icon.png">
 <link rel="stylesheet" href="style.css">
 <title>Mina Segura</title>
 </head>
@@ -50,7 +50,13 @@ function entrarTelaCheia() {
 
 <img src="imagens/mapa.png">
 
+<div class="text2" id="mensagemJogo">
+    👆 Selecione uma área do mapa para começar.
+</div>
 
+<div class="home" onclick="voltarHome()">
+    🏠 Voltar
+</div>
 
 <div class="area"
 style="left:40%;top:8%;width:12%;height:13%"
@@ -206,7 +212,15 @@ const respostaCorreta = {
 };
 
 
+function voltarHome(){
 
+    document.body.classList.add("fechando");
+
+    setTimeout(()=>{
+        window.location.href = "index.html";
+    },450);
+
+}
 
 
 function selecionar(area,nome){
@@ -220,6 +234,10 @@ document.querySelectorAll(".area")
 
 area.classList.add("selecionado");
 
+atualizarMensagem(
+    "📍 Área selecionada: <b>"+nome+
+    "</b><br>Agora selecione os EPIs necessários."
+);
 
 }
 
@@ -253,6 +271,10 @@ localStorage.setItem("epi",JSON.stringify(dados));
 
 atualizar();
 
+atualizarMensagem(
+    "✅ EPI adicionado.<br>Continue adicionando EPIs ou escolha outra área.",
+    false
+);
 
 }
 
@@ -322,6 +344,9 @@ localStorage.setItem("epi", JSON.stringify(dados));
 
 atualizar();
 
+atualizarMensagem(
+    "🗑️ Último EPI removido."
+);
 
 }
 
@@ -356,6 +381,9 @@ selecionado=null;
 
 atualizar();
 
+atualizarMensagem(
+    "👆 Jogo reiniciado. Selecione uma área do mapa."
+);
 
 }
 
@@ -369,6 +397,7 @@ atualizar();
 
 function confirmarResposta(){
 
+atualizarMensagem("🔎 Conferindo suas respostas...");
 
 let erros=0;
 
@@ -441,6 +470,10 @@ if(erros===0){
 }
 
 else{
+
+    atualizarMensagem(
+    "❌ Existem "+erros+" área(s) incorreta(s). Corrija as áreas destacadas em vermelho."
+);
 
 alert(
 "💥 BOOM!\n"+
@@ -519,8 +552,30 @@ function animacaoVitoria(){
 
 atualizar();
 
+let ultimaMensagem = "";
+
+function atualizarMensagem(texto){
+
+    const msg = document.getElementById("mensagemJogo");
+
+    // Se a mensagem for igual à anterior, apenas retorna
+    if(texto === ultimaMensagem){
+        return;
+    }
+
+    ultimaMensagem = texto;
+
+    msg.innerHTML = texto;
+
+    // Reinicia a animação
+    msg.style.animation = "none";
+    msg.offsetHeight;
+    msg.style.animation = "aparecer .6s ease";
+}
 
 </script>
+
+    
 
 <footer>
 
