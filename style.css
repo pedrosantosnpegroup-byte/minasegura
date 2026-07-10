@@ -270,10 +270,8 @@ margin-top:15px;
 }
 
 
-
 .item{
 display:block;
-align-items:center;
 text-align: center;
 background:#333;
 padding:18px;
@@ -383,9 +381,17 @@ border-radius:5px;
 
 /* CELULAR DEITADO */
 @media (max-width:1200px) and (orientation:landscape){
+    
+    .remove{
+       margin-left: 5px;
+    }
 
     .item{
-        font-size: 8px;
+        display:block;
+        background:#333;
+        padding:29px;
+        margin:0px;
+        font-size: 10px;
     }
 
     .topo{
