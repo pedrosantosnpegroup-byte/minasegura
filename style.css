@@ -3,14 +3,16 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
-.toptext{
+h2{
     position:absolute;
     left:0;
     top:-50px;      
     width:100%;
-    font-size:20px;
+    font-size: 10px;
+    font-size:21px;
     text-align:left;
-    color:#000000;
+    color:#007E7A;
+    
 }
 
 .titulo{
@@ -31,7 +33,7 @@ font-family:Arial,sans-serif;
 
     padding:12px 18px;
 
-    background:rgba(0,0,0,.75);
+    background:rgba(0, 0, 0, 0.541);
     backdrop-filter:blur(1px);
 
     color:#fff;
@@ -484,6 +486,9 @@ border-radius:5px;
         gap:20px;
     }
 
+    .btn-f11{
+        display: none;
+    }
 
     .mapa{
         width:95vw;
@@ -547,7 +552,9 @@ border-radius:5px;
         z-index:1000;
     }
 
-
+    .btn-f11{
+        display: none;
+    }
 
     .toptext{
         display: none;
